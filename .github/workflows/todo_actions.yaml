@@ -13,6 +13,6 @@ jobs:
         working-directory: ./src/webapp
         run: |
           npm ci
-          npm run start-sever
-           
+          npm run start-server
+
 
