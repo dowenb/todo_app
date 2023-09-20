@@ -9,10 +9,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18'
-      - name: Setup Webapp
-        working-directory: ./src/webapp
+      - name: API Tests
+        working-directory: ./src/webapp/api
         run: |
           npm ci
-          npm run start-server
-
-
+          npm run test
