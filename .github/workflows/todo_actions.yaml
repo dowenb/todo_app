@@ -2,21 +2,17 @@ name: todo-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
-  hello-test-bash:
+  run-todo-app:
     runs-on: ubuntu-latest
     steps:
-      # - uses: actions/checkout@v4
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '18'
-      - run: echo "Hello Test Bash"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Setup Webapp
+        working-directory: ./src/webapp
+        run: |
+          npm ci
+          npm run start-sever
+           
 
-  # run-todo-app:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '18'
-  #     - run: npm install
-  #     - run: bats -v
